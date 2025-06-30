@@ -1,0 +1,83 @@
+#!/bin/bash
+#SBATCH -o msatr.%j.out
+#SBATCH -p gpu31
+#SBATCH --qos=normal
+#SBATCH -J msatr
+#SBATCH --nodes=1 
+#SBATCH --gres=gpu:1
+#SBATCH -t 120:00:00
+
+msa=contact7.5_kmeans32_mmseqs2_1024/EX.a3m
+python ../../runESM.py  $msa \
+-o  msatr/mmseqs2_1024/
+
+# subsampled_msas=`ls contact7.5_nmf16_kmeans32/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_nmf16_kmeans32/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact7.5_kmeans32_mmseqs2_1024/supervised_cluster_5.0/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o  contact7.5_kmeans32_mmseqs2_1024/msatr_coe/supervised_cluster_5.0/
+# done
+
+# subsampled_msas=`ls contact7.5_kmeans32_raw_att_topn/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_kmeans32_raw_att_topn/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact7.5_kmeans32_nofilter/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_kmeans32_nofilter/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact7.5_kmeans32/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_kmeans32/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact20_kmeans32/supervised_cluster_af2/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact20_kmeans32/msatr_coe/supervised_cluster_af2/
+# done
+
+# subsampled_msas=`ls contact20_kmeans32_nofilter/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact20_kmeans32_nofilter/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact20_kmeans32_nofilter/supervised_cluster_af2/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact20_kmeans32_nofilter/msatr_coe/supervised_cluster_af2/
+# done
+
+
+# subsampled_msas=`ls contact7.5_kmeans32_nofilter/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_kmeans32_nofilter/msatr_coe/supervised_cluster/
+# done
+
+# subsampled_msas=`ls contact7.5_kmeans32_step_nofilter/supervised_cluster/*a3m`
+# for msa in $subsampled_msas
+# do
+# python ../../runESM.py  $msa \
+# -o contact7.5_kmeans32_step_nofilter/msatr_coe/supervised_cluster/
+# done

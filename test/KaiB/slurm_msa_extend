@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -o MSA_extend.%j.out
+#SBATCH -p hygon,cpu1,cpu2,cpu3
+#SBATCH --qos=normal
+#SBATCH -J msa
+#SBATCH --nodes=1 
+#SBATCH -n 8
+#SBATCH -t 120:00:00
+
+a3m=a3m/test.a3m
+# python ../../run_MSA_extend.py EX -i $a3m \
+# -o contact7.5_kmeans32_mmseqs2_1024/unsupervised_cluster_extend \
+# -MSA_cluster_dir contact7.5_kmeans32_mmseqs2_1024/unsupervised_cluster 
+
+python ../../run_MSA_extend.py gt -i $a3m \
+-o contact7.5_kmeans32_mmseqs2_1024/supervised_cluster_af2_extend \
+-MSA_cluster_dir contact7.5_kmeans32_mmseqs2_1024/supervised_cluster_af2

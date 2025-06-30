@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -o af2.%j.out
+#SBATCH -p gpu31
+#SBATCH --qos=normal
+#SBATCH -J af2
+#SBATCH --nodes=1 
+#SBATCH --gres=gpu:1
+#SBATCH -t 120:00:00
+
+# python ../../run_struct_clustering.py EX \
+# --structure_dir contact7.5_kmeans32/AF2_0/unsupervised_cluster_extend \
+# --MSA_dir contact7.5_kmeans32/unsupervised_cluster_extend \
+# --output_dir contact7.5_kmeans32/AF2_0/struct_cluster
+
+python ../../run_struct_clustering_tmscore.py EX \
+--structure_dir contact7.5_kmeans32_mmseqs2_1024/AF2_0/unsupervised_cluster_extend \
+--MSA_dir contact7.5_kmeans32_mmseqs2_1024/unsupervised_cluster_extend \
+--output_dir contact7.5_kmeans32_mmseqs2_1024/AF2_0/struct_cluster_model5_seed0_5 \
+--distance_threshold 1.25
