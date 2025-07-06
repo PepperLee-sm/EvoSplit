@@ -17,8 +17,8 @@ if __name__=='__main__':
 
     p = argparse.ArgumentParser(description=
     """
-    Clustering sequences by separating coevolutionary signals belonging to different conformations.
-    Lishimian, 2024
+    Clustering sequences by disentangling coevolutionary signals belonging to different conformations.
+    Shimian Li
     """)
 
     p.add_argument("keyword", action="store", help="Keyword to call all generated MSAs.")

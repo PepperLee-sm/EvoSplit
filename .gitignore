@@ -1,2 +1,2 @@
-*results
-*.out
+test/KaiB/*results
+test/KaiB/*.out

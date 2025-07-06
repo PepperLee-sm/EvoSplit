@@ -4,9 +4,9 @@ import argparse
 import jax
 import numpy as np
 import pandas as pd
-from scripts.utils import lprint
-from scripts.align  import tmalign, get_rmsd
-from scripts.structure import Structure
+from evosplit.utils import lprint
+from evosplit.align  import tmalign, get_rmsd
+from evosplit.structure import Structure
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
@@ -172,7 +172,6 @@ def write_results(result, pdb_out_path, relax=False):
 model_runners = {}
 for model_num in args.model_num:
   model_name = "model_{}_ptm".format(model_num)
-  # results_key = model_name + "_seed_{}".format(args.seed)
 
   runner = make_model_runner(model_name, args.recycles)
   model_runners[model_name] = (runner)
@@ -191,7 +190,6 @@ for input_msa in args.input_msas:
       lprint(f"{name}\t{model_name}\t{seed}\t{plddt}\t{ptm}", log_f)
 
 if (args.gt1 is not None) and (args.gt2 is not None):
-  # 计算TMscore、rmsd，可视化
   tmscore_gt1 = []
   tmscore_gt2 = []
   rmsd_gt1 = []
@@ -230,7 +228,6 @@ if (args.gt1 is not None) and (args.gt2 is not None):
   plt.colorbar(fraction=0.02, pad=0.05)
   plt.savefig(f"{args.output_dir}/AF2_rmsd.png")
   
-# 按contact无监督聚类
 if args.run_PCA or args.run_TSNE:
   contacts = []
   name = []

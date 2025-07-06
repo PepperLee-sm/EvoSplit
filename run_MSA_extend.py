@@ -1,5 +1,5 @@
 import argparse
-from scripts.utils import QID_filter, load_fasta, write_fasta, lprint
+from evosplit.utils import load_fasta, write_fasta, lprint
 import os
 import numpy as np
 from multiprocessing import Pool
@@ -23,7 +23,6 @@ p.add_argument("keyword", action="store", help="Keyword to call all generated MS
 p.add_argument("-i", action='store', help='fasta/a3m file of original alignment.')
 p.add_argument("-o", action="store", help='name of output directory to write MSAs to.')
 p.add_argument("-MSA_cluster_dir", action='store', help='Directory of MSA cluster.')
-p.add_argument("--MSA_qid_filtered", default=None, help='fasta/a3m file of original alignment.')
 p.add_argument("--gap_cutoff", type=float, default=0.25, help='Remove sequences with gaps representing more than this frac of seq.')
 
 args = p.parse_args()

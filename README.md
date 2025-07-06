@@ -37,14 +37,26 @@ The output directory additionally contains
 			| -- gt2.a3m
 `supervised_cluster`: MSA clusters classified based on match scores with the provided conformations.
 
+### To extend MSA clusters
+The excluded MSAs in QID filtering can be re-used to extend the clusters.
+
+`python run_MSA_extend.py EX -i input.a3m
+-o evosplit_results/unsupervised_cluster_extend
+-MSA_cluster_dir evosplit_results/unsupervised_cluster`
+
+EX_i.a3m files in the output directory: MSA clusters after extension.
+
 ### To run AF2:
 
-`python RunAF2.py`
+`python RunAF2.py <my_subMSA.a3m>`
 
 See https://github.com/jproney/AF2Rank for more information on compiling an AlphaFold2 installation.
 
 ### To run MSA Transformer:
 
-`python runESM.py -i <my_subMSA.a3m> -o <outdir>`
+`python runESM.py <my_subMSA.a3m> -o <outdir>`
+
+### To perform unsupervised clustering of structures:
+`python un_struct_clustering_tmscore.py EX --structure_dir <prediction directory>  --MSA_dir <MSA cluster directory> --output_dir <outdir>`
 
 

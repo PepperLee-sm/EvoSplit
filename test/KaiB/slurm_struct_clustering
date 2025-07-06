@@ -7,10 +7,6 @@
 #SBATCH --gres=gpu:1
 #SBATCH -t 120:00:00
 
-# python ../../run_struct_clustering.py EX \
-# --structure_dir contact7.5_kmeans32/AF2_0/unsupervised_cluster_extend \
-# --MSA_dir contact7.5_kmeans32/unsupervised_cluster_extend \
-# --output_dir contact7.5_kmeans32/AF2_0/struct_cluster
 
 python ../../run_struct_clustering_tmscore.py EX \
 --structure_dir contact7.5_kmeans32_mmseqs2_1024/AF2_0/unsupervised_cluster_extend \
