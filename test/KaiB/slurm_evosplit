@@ -11,44 +11,8 @@ gts=`ls gt_structures/*`
 gt1=`echo $gts | awk '{ print $1 }'`
 gt2=`echo $gts | awk '{ print $2 }'`
 
-python ../../run_evosplit_supervise.py  EX \
--i a3m/test.a3m \
--o contact7.5_kmeans32_mmseqs2_1024 \
---topL 7.5 \
+python ../../run_evosplit.py  EX \
+-i test.a3m \
+-o evosplit_results \
 -gt1 $gt1 \
 -gt2 $gt2 \
---subfamily_MSA_depth 1024 \
---contact_cutoff 8
-
-# python ../../run_evosplit_raw_att_topn_nofilter.py  EX \
-# -i a3m/comb.filter.a3m \
-# -o contact7.5_kmeans32_raw_att_topn_nofilter \
-# --topL 7.5 \
-# -gt1 $gt1 \
-# -gt2 $gt2 
-
-# python ../../run_evosplit_raw_att_topn.py  EX \
-# -i a3m/comb.filter.a3m \
-# -o contact7.5_kmeans32_raw_att_topn \
-# --topL 7.5 \
-# -gt1 $gt1 \
-# -gt2 $gt2 
-
-# python ../../run_evosplit_nofilter.py  EX \
-# -i a3m/comb.filter.a3m \
-# -o contact7.5_kmeans32_nofilter \
-# --topL 7.5 \
-# -gt1 $gt1 \
-# -gt2 $gt2 
-
-# python ../../run_evosplit.py  EX \
-# -i a3m/test.a3m \
-# -o contact7.5_kmeans32_mmseqs2_1024 \
-# --topL 7.5 \
-# -gt1 $gt1 \
-# -gt2 $gt2 \
-# --subfamily_MSA_depth 1024
-
-# python ../../../../run_evosplit_unsupervise.py EX \
-# -i a3m/comb.filter.a3m \
-# -o tri_filter_kmeans 

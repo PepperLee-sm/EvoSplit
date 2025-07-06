@@ -1,0 +1,6 @@
+1094 seqs removed for containing more than 25% gaps, 6801 remaining
+The length of query sequence is 91.
+The depth of MSA to be analysed is 1024.
+The number of sequences matching ground truth 1 is 33
+The number of sequences matching ground truth 2 is 991
+32 clusters, 0 seqs not clustered.
