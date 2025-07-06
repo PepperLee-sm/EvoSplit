@@ -2,6 +2,9 @@
 
 Code and data corresponding to "Disentangling Coevolutionary Constraints for Modeling Protein Conformational Heterogeneity". 
 
+## Installation
+EvoSplit builds on the MSA Transformer to separate coevolutionary signals of distinct protein conformations. Its environment setup is nearly identical to that of the [MSA Transformer](https://github.com/facebookresearch/esm).
+
 ## Usage
 
 ### To generate MSA:
