@@ -6,7 +6,12 @@ Code and data corresponding to "Disentangling Coevolutionary Constraints for Mod
 </p>
 
 ## Installation
-EvoSplit builds on the MSA Transformer to separate coevolutionary signals of distinct protein conformations. Its environment setup is nearly identical to that of the [MSA Transformer](https://github.com/facebookresearch/esm).
+EvoSplit builds on the MSA Transformer to separate coevolutionary signals of distinct protein conformations. Its environment setup is nearly identical to that of the [MSA Transformer](https://github.com/facebookresearch/esm). You can create a conda enviroment, and activate it:
+
+```bash
+conda env create -f environment.yml
+conda activate evosplit
+```
 
 ## Usage
 
@@ -17,6 +22,13 @@ All MSAs used in this manuscript were generated using the [ColabFold notebook](h
 ### To cluster MSA and generate subsampled MSA files:
 
 `python run_evosplit.py EX -i input.a3m -o evosplit_results`
+
+To use this script, just type 'python run_evosplit.py -h' to see the help message.You can run a test case on KaiB using the following commands:
+
+```bash
+cd test/KaiB
+bash ./slurm_evosplit
+```
 
 Outputs a directory named `evosplit_results` that contains
 

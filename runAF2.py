@@ -21,7 +21,7 @@ parser.add_argument("--deterministic", action='store_true', help="make all data 
 parser.add_argument("--af2_dir", default="/lustre/grp/gyqlab/share/AF2_database/", help="AlphaFold code and weights directory")
 parser.add_argument("--relax", action='store_true', help="Whether to relax")
 parser.add_argument("--use_gpu_relax", action='store_true', help="Whether to relax on GPU. Relax on GPU can be much faster than CPU, so it is recommended to enable if possible. GPUs must be available if this setting is enabled.")
-parser.add_argument("--output_dir", default="/home/haw053/metamorph_benchmark/", help="Where to write output files")
+parser.add_argument("--output_dir", default="./output", help="Where to write output files")
 parser.add_argument("-gt1", default=None, help='pdb file of known ground truth conformation.')
 parser.add_argument("-gt2", default=None, help='pdb file of known ground truth conformation.')
 parser.add_argument("--run_PCA", action='store_true', help="Run PCA analysis on predicted structures")

@@ -28,7 +28,6 @@ p.add_argument("--gap_cutoff", type=float, default=0.25, help='Remove sequences 
 args = p.parse_args()
 
 os.makedirs(args.o, exist_ok=True)
-# 读取msa，按gap cutoff过滤
 f = open(os.path.join(args.o, "%s.log"% args.keyword), 'w')
 IDs, seqs = load_fasta(args.i, f, args.gap_cutoff)
 if len(IDs) <= 1024:
@@ -48,22 +47,15 @@ for file in os.listdir(args.MSA_cluster_dir):
         if ID not in IDs_qid:
             IDs_qid.append(ID)
             seqs_qid.append(seqs_cluster[i])
-    
-# # qid进行过滤
-# L = len(seqs[0])
-# N = len(seqs)
-# seqs_qid, IDs_qid = QID_filter(seqs, IDs, num_seqs=1024, tmp_dir=tmp_dir)
-# N = 1024
 
 data_qid = dict(zip(IDs_qid, seqs_qid))
 
 data_pool = {ID:seq for ID, seq in data.items() if ID not in data_qid.keys()}
 IDs_pool = list(data_pool.keys())
 seqs_pool = list(data_pool.values())
-write_fasta(IDs_pool, seqs_pool, outfile=os.path.join(args.o, f"pool.a3m")) # 包含gap的MSA pool
-write_fasta(IDs_pool, [s.replace('-','').upper() for s in seqs_pool], outfile=os.path.join(args.o, f"pool.a3m.fasta")) # 去掉gap & 大写
+write_fasta(IDs_pool, seqs_pool, outfile=os.path.join(args.o, f"pool.a3m")) 
+write_fasta(IDs_pool, [s.replace('-','').upper() for s in seqs_pool], outfile=os.path.join(args.o, f"pool.a3m.fasta")) 
 
-# 1024条序列在gapfilter msa中分别检索子msa
 submsa_path = os.path.join(args.o, 'submsa')
 if not os.path.exists(submsa_path):
     os.mkdir(submsa_path)
@@ -76,7 +68,7 @@ for index, ID in enumerate(IDs_qid):
 multi_run(jac_cmds,8)
 time1 = time.time()
 lprint(f"Time of submsa searching: {time1-time0}", f)
-# 遍历每个msa cluster，若深度>=64则跳过。否则进行扩充
+
 lprint(f"Cluster\tMSA_Depth", f)
 for file in os.listdir(args.MSA_cluster_dir):
     print(file)
@@ -90,11 +82,10 @@ for file in os.listdir(args.MSA_cluster_dir):
         continue
     freq = {ID:0 for ID in IDs_pool}
     posi = {ID:0 for ID in IDs_pool}
-    # 遍历cluster中的每条序列，读取submsa，记录出现次数和位置
-    for ID_cluster in IDs_cluster[1:]: #排除query序列
+    for ID_cluster in IDs_cluster[1:]: # exclude query sequence
         index = IDs_qid.index(ID_cluster)
         IDs_sub, seqs_sub = load_fasta(submsa_path+'/'+str(index)+'.a3m')
-        for p, ID_sub in enumerate(IDs_sub[1:]): # 排除query序列
+        for p, ID_sub in enumerate(IDs_sub[1:]): # exclude query sequence
             if ID_sub in IDs_pool:
                 freq[ID_sub] += 1
                 posi[ID_sub] += p
@@ -104,7 +95,7 @@ for file in os.listdir(args.MSA_cluster_dir):
                 posi[ID_sub] += p
             else:
                 print("Error!", ID_sub)
-    # 选择submsa的交集，若扩充后深度超过64，则取平均位置最前的序列
+    # select the intersection of submsa, if the depth exceeds 64 after extension, take the sequence with the smallest average position
     IDs_common = [ID for ID in freq.keys() if freq[ID]==(len(IDs_cluster)-1)]
     if (len(IDs_common)+len(IDs_cluster)) <= 64:
         IDs_extend = IDs_cluster + IDs_common

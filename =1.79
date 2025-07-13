@@ -1,0 +1,7 @@
+Collecting biopython
+  Downloading biopython-1.81-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Requirement already satisfied: numpy in /lustre/grp/gyqlab/lism/anaconda3/envs/evosplit/lib/python3.7/site-packages (from biopython) (1.21.6)
+Downloading biopython-1.81-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 5.2 MB/s eta 0:00:00
+Installing collected packages: biopython
+Successfully installed biopython-1.81

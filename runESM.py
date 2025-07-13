@@ -18,7 +18,7 @@ import pandas as pd
 import argparse
 
 import sys
-import esm
+from evosplit import esm
 import math
 from scripts.infer import map_top, map_filter
 import gc

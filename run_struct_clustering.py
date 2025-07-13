@@ -47,7 +47,7 @@ for i, id1 in enumerate(dirs):
         p1 = f"{args.structure_dir}/{id1}"
         p2 = f"{args.structure_dir}/{id2}"
         tmscores[i, i+j+1] = tmalign(p1, p2)
-tmscores += tmscores.T - np.diag(tmscores.diagonal()) # 对称操作
+tmscores += tmscores.T - np.diag(tmscores.diagonal()) # symmetrization
 
 with open(os.path.join(args.output_dir, f'structure_clustering_tmscore.pkl'), 'wb') as f:
     pickle.dump({"ids": ids, 'plddt': plddts, 'tmscore': tmscores}, f, protocol=4)
