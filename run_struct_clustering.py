@@ -18,7 +18,6 @@ p = argparse.ArgumentParser()
 
 p.add_argument("keyword", action="store", help="Keyword to call all generated MSAs.")
 p.add_argument("--structure_dir", default="test/KaiB/AF2_results", help="Where to write output files")
-p.add_argument("--MSA_dir", default="test/KaiB/evosplit_results/unsupervised_cluster_extend", help="Directory of MSA cluster")
 p.add_argument("--output_dir", default="test/KaiB/struct_cluster", help="Where to write output files")
 p.add_argument('--plddt_threshold', type=int, action='store',default=60, help='Step for epsilon scan for DBSCAN (Default 0.5).')
 p.add_argument("--clustering_method", default="Hierarchical", help="Clustering method for AF2 structres. Hierarchical or DBscan")

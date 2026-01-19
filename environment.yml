@@ -2,32 +2,35 @@ name: evosplit
 channels:
   - conda-forge
   - bioconda
-  - pytorch
+  - schrodinger
 dependencies:
-  - conda-forge::python=3.7
-  - conda-forge::setuptools=59.5.0
-  - conda-forge::pip
-  - conda-forge::cudatoolkit==11.3.*
-  - conda-forge::einops
-  - conda-forge::fairscale
-  - conda-forge::omegaconf
-  - conda-forge::hydra-core
-  - conda-forge::pandas
-  - conda-forge::pytest
-  - bioconda::hmmer==3.3.2
-  - bioconda::hhsuite==3.3.0
-  - pytorch::pytorch=1.12.*
+  - python=3.10
+  - pymol-bundle
+  - pip
+  - hmmer==3.3.2
+  - hhsuite==3.3.0
   - pip:
-      - biopython==1.79
-      - deepspeed==0.5.9
-      - dm-tree==0.1.6
-      - ml-collections==0.1.0
-      - numpy==1.21.2
-      - PyYAML==5.4.1
-      - requests==2.26.0
-      - scipy==1.7.1
-      - tqdm==4.62.2
-      - typing-extensions==3.10.0.2
-      - pytorch_lightning==1.5.10
-      - wandb==0.12.21
+      - torch==2.8.0 --extra-index-url https://download.pytorch.org/whl/cu126
+      - biopython==1.83
+      - deepspeed
+      - dm-tree==0.1.8
+      - ml-collections
+      - numpy==1.26.3
+      - pandas==2.2.0
+      - scikit-learn==1.7.2
+      - PyYAML
+      - requests
+      - scipy==1.12.0
+      - matplotlib==3.8.2
+      - seaborn==0.13.2
+      - tqdm==4.64.0
+      - typing-extensions==4.15.0
+      - pytorch_lightning==2.3.1
+      - setuptools==80.9.0
+      - wandb
+      - einops
+      - fairscale
+      - omegaconf
+      - hydra-core
+      - pytest
       - git+https://github.com/NVIDIA/dllogger.git

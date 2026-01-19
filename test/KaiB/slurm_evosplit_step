@@ -16,7 +16,3 @@ python ../../run_evosplit_step.py  EX \
 -o contact7.5_kmeans32_mmseqs2_1024_step \
 -gt1 $gt1 \
 -gt2 $gt2 
-
-# python ../../../../run_evosplit_unsupervise.py EX \
-# -i a3m/comb.filter.a3m \
-# -o tri_filter_kmeans 

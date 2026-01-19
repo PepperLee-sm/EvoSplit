@@ -75,7 +75,7 @@ See https://github.com/jproney/AF2Rank for more information on compiling an Alph
 `python runESM.py <my_subMSA.a3m> -o <outdir>`
 
 ### To perform unsupervised clustering of structures:
-`python un_struct_clustering_tmscore.py EX --structure_dir <prediction directory>  --MSA_dir <MSA cluster directory> --output_dir <outdir>`
+`python run_struct_clustering_tmscore.py EX --structure_dir <prediction directory>  --MSA_dir <MSA cluster directory> --output_dir <outdir>`
 
 ## Data Availability
 All data are available from [Google Drive](https://drive.google.com/drive/folders/1VUdgsIM43L-Tye8F6gHpaGL-kxP9Njrw?usp=sharing).
