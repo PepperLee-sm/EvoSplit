@@ -78,5 +78,5 @@ See https://github.com/jproney/AF2Rank for more information on compiling an Alph
 `python run_struct_clustering_tmscore.py EX --structure_dir <prediction directory>  --MSA_dir <MSA cluster directory> --output_dir <outdir>`
 
 ## Data Availability
-All data are available from [Google Drive](https://drive.google.com/drive/folders/1VUdgsIM43L-Tye8F6gHpaGL-kxP9Njrw?usp=sharing).
+All data are available from [Zenodo](https://doi.org/10.5281/zenodo.18334964) or [Google Drive](https://drive.google.com/drive/folders/1VUdgsIM43L-Tye8F6gHpaGL-kxP9Njrw?usp=sharing).
 
