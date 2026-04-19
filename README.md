@@ -1,6 +1,6 @@
 # EvoSplit
 
-Code and data corresponding to "Disentangling Coevolutionary Constraints for Modeling Protein Conformational Heterogeneity".
+Code and data corresponding to ["Disentangling Coevolutionary Constraints for Modeling Protein Conformational Heterogeneity"](https://www.nature.com/articles/s42004-026-01940-9).
 <p align="center">
   <img width="500" src="evosplit/images/fig1.png">
 </p>
@@ -80,3 +80,18 @@ See https://github.com/jproney/AF2Rank for more information on compiling an Alph
 ## Data Availability
 All data are available from [Zenodo](https://doi.org/10.5281/zenodo.18334964) or [Google Drive](https://drive.google.com/drive/folders/1VUdgsIM43L-Tye8F6gHpaGL-kxP9Njrw?usp=sharing).
 
+## Citations
+
+If you use this package, please cite:
+
+```bibtex
+@article{li2026disentangling,
+  title   = {Disentangling coevolutionary constraints for modeling protein conformational heterogeneity},
+  author  = {Li, Shimian and Zhang, Chengwei and Kong, Lupeng and Xue, Yue and Liu, Sirui and Gao, Yi Qin},
+  journal = {Communications Chemistry},
+  volume  = {9},
+  number  = {1},
+  pages   = {146},
+  year    = {2026},
+  doi     = {10.1038/s42004-026-01940-9}
+}
